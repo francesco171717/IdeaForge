@@ -4936,7 +4936,7 @@ section.panel.panel-target h3{
             Questo form invia le risposte in formato domanda/risposta tramite email. Riceverai il report tramite il contatto indicato.
           </div>
 
-          <p class="privacy-link"><a href="./privacy.html">Privacy e trattamento dati</a></p>
+          <p class="privacy-link"><a href="/IdeaForge/privacy.html?v=3">Privacy e trattamento dati</a></p>
 
           <textarea id="summaryEmailPayload" name="Domande e risposte" class="hidden-field" aria-hidden="true"></textarea>
 
@@ -5377,5 +5377,14 @@ const heroCta = document.querySelector(".hero-cta");
       }
     });
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a[href*="privacy.html"]').forEach(function (link) {
+      link.setAttribute("href", "/IdeaForge/privacy.html?v=3");
+    });
+  });
+</script>
+
 </body>
 </html>
