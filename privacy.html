@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy e trattamento dati — IdeaForge</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --bg:#050711;
+      --panel:rgba(255,255,255,.075);
+      --border:rgba(255,255,255,.13);
+      --text:#f5f5f7;
+      --muted:#aeb7ca;
+      --blue:#6fa6ff;
+    }
+    body{
+      margin:0;
+      min-height:100vh;
+      padding:24px;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(47,111,213,.26), transparent 34%),
+        radial-gradient(circle at 88% 82%, rgba(84,220,155,.12), transparent 32%),
+        linear-gradient(180deg,#050711,#080b15 48%,#050711);
+      color:var(--text);
+    }
+    main{
+      width:min(100%,780px);
+      margin:0 auto;
+      padding:34px;
+      border-radius:34px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.082),rgba(255,255,255,.038)),
+        radial-gradient(circle at 100% 0%, rgba(111,166,255,.13), transparent 40%);
+      border:1px solid var(--border);
+      box-shadow:0 32px 78px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.09);
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .brand strong{
+      font-size:26px;
+      letter-spacing:-.045em;
+      line-height:1;
+    }
+    .brand span{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+    }
+    a.back{
+      display:inline-flex;
+      min-height:44px;
+      align-items:center;
+      justify-content:center;
+      padding:0 16px;
+      border-radius:999px;
+      background:rgba(111,166,255,.12);
+      border:1px solid rgba(111,166,255,.18);
+      color:#d9e6ff;
+      text-decoration:none;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(40px,7.4vw,68px);
+      line-height:1.02;
+      letter-spacing:-.035em;
+    }
+    p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.55;
+      font-weight:600;
+    }
+    section{
+      margin-top:26px;
+      padding-top:24px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.035em;
+    }
+    ul{
+      margin:10px 0 0;
+      padding-left:20px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      font-weight:600;
+    }
+    li{margin:7px 0}
+    .back-bottom{
+      width:100%;
+      margin-top:14px;
+      margin-bottom:6px;
+    }
+
+    .notice{
+      margin-top:8px;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(111,166,255,.10);
+      border:1px solid rgba(111,166,255,.18);
+      color:#dbe7ff;
+      font-weight:700;
+      line-height:1.45;
+    }
+    @media(max-width:640px){
+      body{padding:14px}
+      main{padding:26px 22px;border-radius:28px}
+      .top{align-items:flex-start;flex-direction:column}
+      a.back{width:100%}
+      h1{
+        font-size:clamp(42px,11vw,58px);
+        line-height:1.04;
+        letter-spacing:-.028em;
+      }
+      .back-bottom{
+        margin-top:12px;
+        margin-bottom:4px;
+      }
+      .notice{
+        margin-top:6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top">
+      <div class="brand">
+        <strong>IdeaForge</strong>
+        <span>Privacy e trattamento dati</span>
+      </div>
+    </div>
+
+    <h1>Privacy e trattamento dati</h1>
+
+    <p>
+      Questa pagina spiega in modo semplice come vengono trattati i dati inseriti nel form IdeaForge.
+    </p>
+
+    <section>
+      <h2>Quali dati vengono raccolti</h2>
+      <p>
+        Il form raccoglie le risposte inserite dall’utente: nome dell’idea, descrizione, problema,
+        target, risposte di validazione, livello di convinzione e contatto indicato per ricevere il report.
+      </p>
+    </section>
+
+    <section>
+      <h2>Perché vengono raccolti</h2>
+      <p>
+        I dati servono esclusivamente a preparare un report critico sull’idea inviata e a ricontattare
+        l’utente tramite il contatto fornito.
+      </p>
+    </section>
+
+    <section>
+      <h2>Come vengono inviati</h2>
+      <p>
+        Le risposte vengono inviate tramite FormSubmit all’indirizzo email configurato dal proprietario
+        del sito. IdeaForge, in questa versione, non usa un database interno.
+      </p>
+    </section>
+
+    <section>
+      <h2>Cosa non viene fatto</h2>
+      <ul>
+        <li>Non vengono venduti dati a terzi.</li>
+        <li>Non viene creato un account utente.</li>
+        <li>Non viene usato un sistema di tracciamento avanzato.</li>
+        <li>Non viene salvato alcun dato in un database proprietario del sito.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Richiesta di cancellazione</h2>
+      <p>
+        Per chiedere la cancellazione delle informazioni inviate, l’utente può scrivere allo stesso
+        contatto utilizzato per ricevere il report.
+      </p>
+    </section>
+
+    <a class="back back-bottom" href="./">Torna al form</a>
+
+    <div class="notice">
+      Nota: questa è una pagina privacy operativa per un prototipo. Prima di usare il sito in modo commerciale,
+      è consigliabile far revisionare il testo da una persona competente in materia legale/privacy.
+    </div>
+  </main>
+</body>
+</html>
