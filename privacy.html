@@ -1,210 +1,523 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy e trattamento dati — IdeaForge</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeaForge • Privacy e trattamento dati</title>
   <style>
-    *{box-sizing:border-box}
     :root{
-      --bg:#050711;
-      --panel:rgba(255,255,255,.075);
-      --border:rgba(255,255,255,.13);
-      --text:#f5f5f7;
-      --muted:#aeb7ca;
-      --blue:#6fa6ff;
-    }
-    body{
-      margin:0;
-      min-height:100vh;
-      padding:24px;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(47,111,213,.26), transparent 34%),
-        radial-gradient(circle at 88% 82%, rgba(84,220,155,.12), transparent 32%),
-        linear-gradient(180deg,#050711,#080b15 48%,#050711);
-      color:var(--text);
-    }
-    main{
-      width:min(100%,780px);
-      margin:0 auto;
-      padding:34px;
-      border-radius:34px;
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.082),rgba(255,255,255,.038)),
-        radial-gradient(circle at 100% 0%, rgba(111,166,255,.13), transparent 40%);
-      border:1px solid var(--border);
-      box-shadow:0 32px 78px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.09);
-    }
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:28px;
-    }
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:5px;
-    }
-    .brand strong{
-      font-size:26px;
-      letter-spacing:-.045em;
-      line-height:1;
-    }
-    .brand span{
-      color:var(--muted);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.03em;
-      text-transform:uppercase;
-    }
-    a.back{
-      display:inline-flex;
-      min-height:44px;
-      align-items:center;
-      justify-content:center;
-      padding:0 16px;
-      border-radius:999px;
-      background:rgba(111,166,255,.12);
-      border:1px solid rgba(111,166,255,.18);
-      color:#d9e6ff;
-      text-decoration:none;
-      font-weight:800;
-      white-space:nowrap;
-    }
-    h1{
-      margin:0 0 14px;
-      font-size:clamp(40px,7.4vw,68px);
-      line-height:1.02;
-      letter-spacing:-.035em;
-    }
-    p{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.55;
-      font-weight:600;
-    }
-    section{
-      margin-top:26px;
-      padding-top:24px;
-      border-top:1px solid rgba(255,255,255,.10);
-    }
-    h2{
-      margin:0 0 10px;
-      font-size:22px;
-      letter-spacing:-.035em;
-    }
-    ul{
-      margin:10px 0 0;
-      padding-left:20px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.55;
-      font-weight:600;
-    }
-    li{margin:7px 0}
-    .back-bottom{
-      width:100%;
-      margin-top:14px;
-      margin-bottom:6px;
+      --bg:#070912;
+      --text:#f5f7ff;
+      --muted:#b9c3e1;
+      --muted-2:#8e97b4;
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(171,190,255,.22);
+      --blue:#4f7df3;
+      --blue-2:#6f8fff;
+      --panel:#111523;
+      --panel-2:#181f38;
+      --shadow:0 24px 90px rgba(0,0,0,.45);
+      --r-xl:38px;
+      --r-lg:28px;
+      --r-md:20px;
+      --r-pill:999px;
+      --maxw:780px;
     }
 
-    .notice{
-      margin-top:8px;
-      padding:18px;
-      border-radius:22px;
-      background:rgba(111,166,255,.10);
-      border:1px solid rgba(111,166,255,.18);
-      color:#dbe7ff;
-      font-weight:700;
-      line-height:1.45;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(79,125,243,.18), transparent 34%),
+        radial-gradient(circle at 82% 18%, rgba(115,92,255,.14), transparent 30%),
+        linear-gradient(180deg,#04060d 0%,#070b16 45%,#050711 100%);
+      opacity:0;
+      transform:translateY(10px) scale(.992);
+      animation:privacyEnter .62s cubic-bezier(.16,1,.3,1) forwards;
     }
-    @media(max-width:640px){
-      body{padding:14px}
-      main{padding:26px 22px;border-radius:28px}
-      .top{align-items:flex-start;flex-direction:column}
-      a.back{width:100%}
-      h1{
-        font-size:clamp(42px,11vw,58px);
-        line-height:1.04;
-        letter-spacing:-.028em;
-      }
-      .back-bottom{
-        margin-top:12px;
-        margin-bottom:4px;
-      }
-      .notice{
-        margin-top:6px;
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(150,170,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(150,170,255,.06) 1px, transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.56), rgba(0,0,0,.1));
+    }
+
+    @keyframes privacyEnter{
+      from{opacity:0; transform:translateY(14px) scale(.99); filter:blur(4px)}
+      to{opacity:1; transform:translateY(0) scale(1); filter:blur(0)}
+    }
+
+    @keyframes privacyLeave{
+      from{opacity:1; transform:translateY(0) scale(1); filter:blur(0)}
+      to{opacity:0; transform:translateY(10px) scale(.992); filter:blur(3px)}
+    }
+
+    body.privacy-leaving{
+      animation:privacyLeave .48s cubic-bezier(.7,0,.84,0) forwards;
+    }
+
+    .page{
+      width:min(calc(100% - 24px), var(--maxw));
+      margin:0 auto;
+      padding:18px 0 40px;
+      position:relative;
+      z-index:1;
+    }
+
+    .shell{
+      border:1px solid var(--line);
+      border-radius:42px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:linear-gradient(180deg, rgba(22,26,38,.92) 0%, rgba(13,16,27,.95) 100%);
+      position:relative;
+      isolation:isolate;
+    }
+
+    .shell::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 16% 24%, rgba(79,125,243,.14), transparent 32%),
+        radial-gradient(circle at 84% 20%, rgba(113,96,255,.12), transparent 28%);
+    }
+
+    .hero{
+      padding:34px 22px 30px;
+      background:linear-gradient(135deg, rgba(51,78,146,.46), rgba(82,67,151,.28));
+      border-bottom:1px solid rgba(255,255,255,.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), transparent 42%);
+      pointer-events:none;
+    }
+
+    .brand-row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .brand-badge{
+      width:84px;
+      height:84px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      display:grid;
+      place-items:center;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+      flex:0 0 auto;
+    }
+
+    .brand-diamond{
+      width:60px;
+      height:60px;
+      border-radius:20px;
+      background:linear-gradient(180deg, #8fb0ff 0%, #5f8bf8 58%, #3f67e2 100%);
+      transform:rotate(45deg);
+      display:grid;
+      place-items:center;
+      box-shadow:0 12px 24px rgba(79,125,243,.28);
+    }
+
+    .brand-diamond span{
+      transform:rotate(-45deg);
+      color:#f7faff;
+      font-size:28px;
+      font-weight:900;
+      line-height:1;
+      text-shadow:0 0 16px rgba(255,255,255,.25);
+    }
+
+    .brand-name{
+      font-size:clamp(40px, 9vw, 74px);
+      line-height:.94;
+      letter-spacing:-.065em;
+      font-weight:950;
+    }
+
+    .brand-meta{
+      margin-top:4px;
+      color:var(--muted);
+      font-size:clamp(18px, 4vw, 24px);
+      font-weight:850;
+      letter-spacing:-.03em;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:var(--r-pill);
+      border:1px solid rgba(165,185,255,.18);
+      background:rgba(25,34,66,.48);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+      color:#9fb9ff;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--blue);
+      box-shadow:0 0 18px rgba(79,125,243,.45);
+    }
+
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(52px, 12vw, 82px);
+      line-height:.90;
+      letter-spacing:-.065em;
+      font-weight:950;
+      max-width:8.6ch;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-copy{
+      max-width:560px;
+      font-size:clamp(18px, 2.8vw, 22px);
+      line-height:1.35;
+      color:var(--muted);
+      font-weight:800;
+      letter-spacing:-.03em;
+      position:relative;
+      z-index:1;
+    }
+
+    .content{
+      padding:18px 16px 22px;
+      display:grid;
+      gap:16px;
+      counter-reset:policy;
+      position:relative;
+      z-index:1;
+    }
+
+    .policy-intro{
+      border-radius:30px;
+      border:1px solid var(--line-strong);
+      background:linear-gradient(135deg, rgba(45,63,117,.82), rgba(33,45,84,.72));
+      padding:18px 18px 16px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .policy-intro-pill{
+      display:inline-flex;
+      align-items:center;
+      min-height:38px;
+      padding:0 16px;
+      border-radius:var(--r-pill);
+      border:1px solid rgba(173,190,255,.16);
+      background:rgba(18,25,49,.44);
+      color:#a9c0ff;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    .policy-intro p{
+      margin:0;
+      font-size:17px;
+      line-height:1.62;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .card{
+      counter-increment:policy;
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      border:1px solid rgba(145,165,255,.16);
+      background:linear-gradient(180deg, rgba(18,23,40,.92) 0%, rgba(11,15,28,.96) 100%);
+      padding:82px 18px 18px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .card::before{
+      content:counter(policy, decimal-leading-zero);
+      position:absolute;
+      left:18px;
+      top:18px;
+      min-width:76px;
+      height:54px;
+      padding:0 20px;
+      border-radius:24px;
+      background:rgba(79,125,243,.18);
+      border:1px solid rgba(137,162,255,.16);
+      color:var(--blue-2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      font-weight:950;
+      letter-spacing:.08em;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .card h2{
+      margin:0 0 12px;
+      font-size:clamp(28px, 6vw, 36px);
+      line-height:.98;
+      font-weight:950;
+      letter-spacing:-.05em;
+    }
+
+    .card p,
+    .card li{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.68;
+      font-weight:700;
+    }
+
+    .card ul{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .card strong{color:var(--text)}
+
+    .info-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    .highlight{
+      border-radius:24px;
+      padding:16px 16px 14px;
+      border:1px solid rgba(137,162,255,.18);
+      background:linear-gradient(180deg, rgba(38,51,97,.78) 0%, rgba(22,29,56,.78) 100%);
+    }
+
+    .highlight strong{
+      display:block;
+      margin-bottom:8px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+
+    .list-tight{
+      display:grid;
+      gap:12px;
+    }
+
+    .back-block{
+      display:grid;
+      gap:10px;
+      margin-top:2px;
+    }
+
+    .back-bottom{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      padding:0 26px;
+      width:100%;
+      text-decoration:none;
+      border-radius:var(--r-pill);
+      background:linear-gradient(180deg, #4e78da 0%, #3e65c3 100%);
+      color:#fff;
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:-.03em;
+      box-shadow:0 14px 34px rgba(66,110,230,.28), inset 0 1px 0 rgba(255,255,255,.18);
+      transition:transform .18s ease, filter .18s ease, box-shadow .18s ease;
+    }
+
+    .back-bottom:active{transform:translateY(1px) scale(.995); filter:brightness(.98)}
+
+    .mini-note{
+      margin:0;
+      color:var(--muted-2);
+      font-size:14px;
+      line-height:1.5;
+      font-weight:700;
+    }
+
+    .footer-note{
+      padding:14px 10px 8px;
+      text-align:center;
+      color:#8490b4;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    @media (min-width:760px){
+      .info-grid.two-cols{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:640px){
+      .page{width:min(calc(100% - 18px), var(--maxw)); padding:14px 0 28px}
+      .shell{border-radius:28px}
+      .hero{padding:22px 18px 16px}
+      .brand-row{gap:12px; margin-bottom:14px}
+      .brand-badge{width:74px;height:74px;border-radius:22px}
+      .brand-diamond{width:52px;height:52px}
+      .brand-diamond span{font-size:24px}
+      .content{padding:16px 14px 20px; gap:14px}
+      .card{padding:76px 16px 16px; border-radius:24px}
+      .card::before{left:16px; top:16px; min-width:70px; height:50px; font-size:20px}
+      .policy-intro{border-radius:24px}
+      .highlight{border-radius:20px}
+      .back-bottom{min-height:54px; font-size:18px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      body, body.privacy-leaving{
+        animation:none !important;
+        opacity:1 !important;
+        transform:none !important;
+        filter:none !important;
       }
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="top">
-      <div class="brand">
-        <strong>IdeaForge</strong>
-        <span>Privacy e trattamento dati</span>
+  <main class="page">
+    <section class="shell">
+      <header class="hero">
+        <h1>Privacy e trattamento dati</h1>
+        <p class="hero-copy">
+          Qui trovi in modo chiaro come vengono gestite le informazioni inserite nel form IdeaForge.
+        </p>
+      </header>
+
+      <div class="content">
+        <section class="policy-intro">
+          <div class="policy-intro-pill">Servizio manuale</div>
+          <p>
+            Le richieste inviate tramite il form vengono ricevute via email e gestite manualmente.
+            Questa pagina spiega, in modo semplice, quali dati vengono usati e per quale finalità.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Finalità del servizio</h2>
+          <p>
+            Le informazioni inserite nel form vengono utilizzate esclusivamente per ricevere la richiesta,
+            leggere il riepilogo inviato e preparare una risposta o un report manuale relativo all’idea proposta.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Dati raccolti</h2>
+          <div class="info-grid two-cols">
+            <div class="highlight">
+              <strong>Vengono trattati solo i dati inseriti nel form</strong>
+              <p>
+                Nome idea, descrizione, target, problemi, budget, disponibilità, tono del feedback
+                e tutte le altre risposte necessarie per l’analisi.
+              </p>
+            </div>
+            <div class="highlight">
+              <strong>Non vengono richiesti dati sensibili</strong>
+              <p>
+                Non è previsto l’inserimento di categorie particolari di dati personali come dati sanitari,
+                politici o giudiziari.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Modalità di invio e gestione</h2>
+          <ul class="list-tight">
+            <li>Il riepilogo compilato viene inviato via email per consentire la presa in carico della richiesta.</li>
+            <li>Le informazioni vengono lette manualmente per formulare la risposta o il report.</li>
+            <li>Non è prevista una decisione automatizzata con effetti legali o simili.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Conservazione dei dati</h2>
+          <p>
+            I dati vengono conservati per il tempo necessario a valutare la richiesta,
+            formulare la risposta e gestire eventuali contatti successivi collegati al servizio.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Uso delle informazioni</h2>
+          <p>
+            Le informazioni ricevute non vengono vendute né diffuse pubblicamente.
+            Sono utilizzate solo per finalità connesse all’analisi dell’idea e alla risposta richiesta.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Contatto</h2>
+          <p>
+            Per richieste relative al trattamento delle informazioni inviate tramite il form,
+            puoi fare riferimento al contatto indicato nel servizio o rispondere all’email ricevuta.
+          </p>
+        </section>
+
+        <div class="back-block">
+          <a class="back-bottom" href="/IdeaForge/">Torna al form</a>
+          <p class="mini-note">
+            <strong>Nota:</strong> questa pagina ha funzione informativa e descrive in modo semplice la gestione delle richieste inviate tramite IdeaForge.
+          </p>
+        </div>
       </div>
-    </div>
-
-    <h1>Privacy e trattamento dati</h1>
-
-    <p>
-      Questa pagina spiega in modo semplice come vengono trattati i dati inseriti nel form IdeaForge.
-    </p>
-
-    <section>
-      <h2>Quali dati vengono raccolti</h2>
-      <p>
-        Il form raccoglie le risposte inserite dall’utente: nome dell’idea, descrizione, problema,
-        target, risposte di validazione, livello di convinzione e contatto indicato per ricevere il report.
-      </p>
     </section>
 
-    <section>
-      <h2>Perché vengono raccolti</h2>
-      <p>
-        I dati servono esclusivamente a preparare un report critico sull’idea inviata e a ricontattare
-        l’utente tramite il contatto fornito.
-      </p>
-    </section>
-
-    <section>
-      <h2>Come vengono inviati</h2>
-      <p>
-        Le risposte vengono inviate tramite FormSubmit all’indirizzo email configurato dal proprietario
-        del sito. IdeaForge, in questa versione, non usa un database interno.
-      </p>
-    </section>
-
-    <section>
-      <h2>Cosa non viene fatto</h2>
-      <ul>
-        <li>Non vengono venduti dati a terzi.</li>
-        <li>Non viene creato un account utente.</li>
-        <li>Non viene usato un sistema di tracciamento avanzato.</li>
-        <li>Non viene salvato alcun dato in un database proprietario del sito.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Richiesta di cancellazione</h2>
-      <p>
-        Per chiedere la cancellazione delle informazioni inviate, l’utente può scrivere allo stesso
-        contatto utilizzato per ricevere il report.
-      </p>
-    </section>
-
-    <a class="back back-bottom" href="./">Torna al form</a>
-
-    <div class="notice">
-      Nota: questa è una pagina privacy operativa per un prototipo. Prima di usare il sito in modo commerciale,
-      è consigliabile far revisionare il testo da una persona competente in materia legale/privacy.
-    </div>
+    <p class="footer-note">IdeaForge • Privacy e trattamento dati</p>
   </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const backLink = document.querySelector(".back-bottom");
+      if (!backLink) return;
+
+      backLink.addEventListener("click", function (event) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        event.preventDefault();
+        document.body.classList.add("privacy-leaving");
+        setTimeout(function () {
+          window.location.href = backLink.getAttribute("href") || "./";
+        }, 460);
+      });
+    });
+  </script>
 </body>
 </html>
