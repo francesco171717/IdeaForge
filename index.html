@@ -4936,7 +4936,7 @@ section.panel.panel-target h3{
             Questo form invia le risposte in formato domanda/risposta tramite email. Riceverai il report tramite il contatto indicato.
           </div>
 
-          <p class="privacy-link"><a href="/IdeaForge/privacy.html?v=3">Privacy e trattamento dati</a></p>
+          <p class="privacy-link"><a class="privacy-open-link" href="/IdeaForge/privacy.html?v=4">Privacy e trattamento dati</a></p>
 
           <textarea id="summaryEmailPayload" name="Domande e risposte" class="hidden-field" aria-hidden="true"></textarea>
 
@@ -5382,6 +5382,28 @@ const heroCta = document.querySelector(".hero-cta");
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('a[href*="privacy.html"]').forEach(function (link) {
       link.setAttribute("href", "/IdeaForge/privacy.html?v=3");
+    });
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const privacyLink = document.querySelector(".privacy-open-link");
+    if (!privacyLink) return;
+
+    privacyLink.addEventListener("click", function (event) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      event.preventDefault();
+      document.body.style.transition = "opacity .28s ease, transform .28s ease, filter .28s ease";
+      document.body.style.opacity = "0";
+      document.body.style.transform = "translateY(-6px) scale(.996)";
+      document.body.style.filter = "blur(2px)";
+
+      setTimeout(function () {
+        window.location.href = privacyLink.href;
+      }, 280);
     });
   });
 </script>
