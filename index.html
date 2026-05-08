@@ -5484,7 +5484,8 @@ const heroCta = document.querySelector(".hero-cta");
         }
 
         if (submitStatus) {
-          submitStatus.textContent = "Riepilogo inviato con successo.";
+          submitStatus.textContent = "";
+          submitStatus.classList.remove("is-visible");
         }
 
         if (submitButton) {
