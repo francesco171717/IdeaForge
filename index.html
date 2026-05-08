@@ -4614,6 +4614,22 @@ section.panel.panel-target h3{
   }
 }
 
+
+    /* v30 — elimina definitivamente il riquadro status dopo/in fase invio */
+    #submitStatus,
+    .submit-status{
+      display:none !important;
+      visibility:hidden !important;
+      height:0 !important;
+      min-height:0 !important;
+      margin:0 !important;
+      padding:0 !important;
+      border:0 !important;
+      opacity:0 !important;
+      pointer-events:none !important;
+      overflow:hidden !important;
+    }
+
 </style>
 </head>
 <body>
@@ -4661,7 +4677,7 @@ section.panel.panel-target h3{
             </div>
             <div class="hero-brand-copy">
               <div class="hero-brand-name">IdeaForge</div>
-              <div class="hero-brand-sub">Prototype v0.7.1.1 · FORGE</div>
+              <div class="hero-brand-sub">Prototype v0.7.2 · FORGE</div>
             </div>
           </div>
         </div>
@@ -5005,10 +5021,7 @@ section.panel.panel-target h3{
           <p class="privacy-link"><a href="./privacy.html">Privacy e trattamento dati</a></p>
 
           <textarea id="summaryEmailPayload" name="Domande e risposte" class="hidden-field" aria-hidden="true"></textarea>
-
-          <div id="submitStatus" class="submit-status" role="status" aria-live="polite"></div>
-
-          <div class="actions">
+<div class="actions">
             <p>Le risposte verranno inviate in uno schema ordinato domanda/risposta, così il report può essere preparato rapidamente.</p>
             <button class="btn" type="submit">Invia richiesta</button>
           </div>
@@ -5046,7 +5059,7 @@ section.panel.panel-target h3{
                   </section>
       </form>
 
-      <div class="footer">IdeaForge • Prototype v0.7.1.1.1.1</div>
+      <div class="footer">IdeaForge • Prototype v0.7.2</div>
     </section>
   </main>
 
@@ -5481,6 +5494,11 @@ const heroCta = document.querySelector(".hero-cta");
         if (result) {
           result.classList.add("visible");
           result.scrollIntoView({ behavior:"smooth", block:"center" });
+        }
+
+        const oldStatusBox = document.getElementById("submitStatus");
+        if (oldStatusBox) {
+          oldStatusBox.remove();
         }
 
         if (submitStatus) {
