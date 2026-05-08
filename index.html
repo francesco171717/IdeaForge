@@ -3265,6 +3265,72 @@
       letter-spacing:-.015em !important;
     }
 
+
+    /* Missing fields warning card */
+    .missing-fields-notice{
+      background:
+        linear-gradient(180deg, rgba(28,34,54,.94), rgba(12,16,30,.97)),
+        radial-gradient(circle at 50% 0%, rgba(236,164,0,.14), transparent 40%) !important;
+      border:1px solid rgba(236,164,0,.26) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.07),
+        0 24px 58px rgba(0,0,0,.24) !important;
+    }
+
+    .warning-card{
+      gap:16px !important;
+    }
+
+    .warning-check{
+      width:96px;
+      height:96px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, #FFCF5B 0%, #ECA400 100%);
+      color:#12100A;
+      font-size:58px;
+      line-height:1;
+      font-weight:950;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.38),
+        0 0 0 1px rgba(255,220,120,.26),
+        0 0 28px rgba(236,164,0,.25),
+        0 0 72px rgba(236,164,0,.14);
+    }
+
+    .missing-fields-list{
+      width:100%;
+      max-width:620px;
+      margin:2px 0 4px !important;
+      padding:0 !important;
+      list-style:none !important;
+      display:grid;
+      gap:8px;
+      text-align:left;
+    }
+
+    .missing-fields-list li{
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.085);
+      color:#E7ECFF;
+      font-size:15px;
+      line-height:1.25;
+      font-weight:760;
+      letter-spacing:-.015em;
+    }
+
+    .warning-btn{
+      margin-top:4px;
+      background:linear-gradient(180deg, #FFCF5B 0%, #ECA400 100%) !important;
+      color:#12100A !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.26),
+        0 16px 34px rgba(236,164,0,.22) !important;
+    }
+
     .summary-hidden{
       position:absolute !important;
       left:-9999px !important;
@@ -4739,13 +4805,13 @@ section.panel.panel-target h3{
           <div class="field">
             <label for="ideaName">Come si chiama la tua idea?</label>
             <span class="hint">Anche un nome provvisorio va bene.</span>
-            <input type="text" id="ideaName" name="Nome idea" autocomplete="off" placeholder="Es. IdeaForge, ClipPilot, OfferOS" required>
+            <input type="text" id="ideaName" name="Nome idea" autocomplete="off" placeholder="Es. IdeaForge, ClipPilot, OfferOS">
           </div>
 
           <div class="field">
             <label for="description">Descrivila in modo semplice.</label>
             <span class="hint">Spiega cosa fa, per chi è pensata e in che modo dovrebbe funzionare.</span>
-            <textarea id="description" name="Descrizione" placeholder="Es. Uno strumento che aiuta creator e freelance a trasformare idee confuse in progetti testabili..." required></textarea>
+            <textarea id="description" name="Descrizione" placeholder="Es. Uno strumento che aiuta creator e freelance a trasformare idee confuse in progetti testabili..."></textarea>
           </div>
 
           <div class="field">
@@ -4818,20 +4884,20 @@ section.panel.panel-target h3{
           <div class="field">
             <label for="problem">Che problema dovrebbe risolvere?</label>
             <span class="hint">Descrivi il fastidio reale che l’idea elimina.</span>
-            <textarea id="problem" name="Problema" placeholder="Es. Molte persone hanno idee ma non sanno quale testare, per chi crearla e come monetizzarla..." required></textarea>
+            <textarea id="problem" name="Problema" placeholder="Es. Molte persone hanno idee ma non sanno quale testare, per chi crearla e come monetizzarla..."></textarea>
           </div>
 
           <div class="grid">
             <div class="field">
               <label for="target">Chi dovrebbe usarla?</label>
               <span class="hint">Descrivi l’utente finale.</span>
-              <textarea id="target" name="Utente ideale" placeholder="Es. Creator piccoli, freelance, aspiranti founder non tecnici..." required></textarea>
+              <textarea id="target" name="Utente ideale" placeholder="Es. Creator piccoli, freelance, aspiranti founder non tecnici..."></textarea>
             </div>
 
             <div class="field">
               <label for="payer">Chi dovrebbe pagarla?</label>
               <span class="hint">A volte chi usa e chi paga non coincidono.</span>
-              <textarea id="payer" name="Cliente pagante" placeholder="Es. Lo stesso creator, un team, un’agenzia..." required></textarea>
+              <textarea id="payer" name="Cliente pagante" placeholder="Es. Lo stesso creator, un team, un’agenzia..."></textarea>
             </div>
           </div>
         </section>
@@ -4846,13 +4912,13 @@ section.panel.panel-target h3{
           <div class="field">
             <label for="why">Perché secondo te potrebbe funzionare?</label>
             <span class="hint">Puoi citare esperienze personali, trend, segnali di domanda o osservazioni dirette.</span>
-            <textarea id="why" name="Perché potrebbe funzionare" placeholder="Es. Ho notato che molte persone accumulano idee ma non hanno un processo per valutarle..." required></textarea>
+            <textarea id="why" name="Perché potrebbe funzionare" placeholder="Es. Ho notato che molte persone accumulano idee ma non hanno un processo per valutarle..."></textarea>
           </div>
 
           <div class="field">
             <label for="similar">Hai visto strumenti o progetti simili?</label>
             <span class="hint">Indica eventuali riferimenti e spiega in cosa vorresti essere diverso.</span>
-            <textarea id="similar" name="Alternative simili" placeholder="Es. Esistono tool di idea validation, ma spesso generano report troppo generici..." required></textarea>
+            <textarea id="similar" name="Alternative simili" placeholder="Es. Esistono tool di idea validation, ma spesso generano report troppo generici..."></textarea>
           </div>
         </section>
 
@@ -4866,25 +4932,25 @@ section.panel.panel-target h3{
           <div class="field">
             <label for="revenue">Come immagini di guadagnarci?</label>
             <span class="hint">Abbonamento, pagamento singolo, setup, commissione, servizio premium.</span>
-            <textarea id="revenue" name="Modello di guadagno" placeholder="Es. Report da 19€, versione premium da 49€, poi abbonamento mensile..." required></textarea>
+            <textarea id="revenue" name="Modello di guadagno" placeholder="Es. Report da 19€, versione premium da 49€, poi abbonamento mensile..."></textarea>
           </div>
 
           <div class="grid">
             <div class="field">
               <label for="time">Quanto tempo puoi dedicarci nei prossimi 30 giorni?</label>
-              <input type="text" id="time" name="Tempo disponibile" autocomplete="off" placeholder="Es. 5 ore a settimana" required>
+              <input type="text" id="time" name="Tempo disponibile" autocomplete="off" placeholder="Es. 5 ore a settimana">
             </div>
 
             <div class="field">
               <label for="budget">Quanto budget hai per testarla?</label>
-              <input type="text" id="budget" name="Budget disponibile" autocomplete="off" placeholder="Es. 0–50€, 100€, 300€" required>
+              <input type="text" id="budget" name="Budget disponibile" autocomplete="off" placeholder="Es. 0–50€, 100€, 300€">
             </div>
           </div>
 
           <div class="field">
             <label for="block">Cosa ti blocca oggi?</label>
             <span class="hint">Scrivi il blocco più reale: tecnica, paura, vendite, tempo, confusione, budget.</span>
-            <textarea id="block" name="Blocco principale" placeholder="Es. Non so come trovare i primi utenti e temo di costruire qualcosa che nessuno paga..." required></textarea>
+            <textarea id="block" name="Blocco principale" placeholder="Es. Non so come trovare i primi utenti e temo di costruire qualcosa che nessuno paga..."></textarea>
           </div>
         </section>
 
@@ -4900,7 +4966,7 @@ section.panel.panel-target h3{
             <span class="hint">La critica più utile non è sempre la più piacevole.</span>
             <div class="pill-options feedback-tone-options">
               <label class="pill"><input type="radio" name="Critica richiesta" value="Leggera"><span>Leggera</span></label>
-              <label class="pill"><input type="radio" name="Critica richiesta" value="Diretta" checked required><span>Diretta</span></label>
+              <label class="pill"><input type="radio" name="Critica richiesta" value="Diretta" checked><span>Diretta</span></label>
               <label class="pill"><input type="radio" name="Critica richiesta" value="Spietata"><span>Spietata</span></label>
             </div>
           </fieldset>
@@ -4911,7 +4977,7 @@ section.panel.panel-target h3{
             <div class="pill-options validation-plan-options">
               
             
-              <label class="pill"><input type="radio" name="Piano di validazione" value="No" checked required><span>No, solo analisi</span></label>
+              <label class="pill"><input type="radio" name="Piano di validazione" value="No" checked><span>No, solo analisi</span></label>
               <label class="pill"><input type="radio" name="Piano di validazione" value="Sì"><span>Sì, voglio il piano</span></label>
             
           
@@ -4929,14 +4995,14 @@ section.panel.panel-target h3{
           <div class="field">
             <label for="contact">Email o contatto per ricevere il report</label>
             <span class="hint">Nel prototipo locale il dato non viene inviato automaticamente.</span>
-            <input type="text" id="contact" name="email" placeholder="Email, Telegram, Instagram o altro contatto" autocomplete="email" inputmode="email" required>
+            <input type="text" id="contact" name="email" placeholder="Email, Telegram, Instagram o altro contatto" autocomplete="email" inputmode="email">
           </div>
 
           <div class="notice">
             Questo form invia le risposte in formato domanda/risposta tramite email. Riceverai il report tramite il contatto indicato.
           </div>
 
-          <p class="privacy-link"><a href="/IdeaForge/privacy.html?v=3">Privacy e trattamento dati</a></p>
+          <p class="privacy-link"><a href="./privacy.html">Privacy e trattamento dati</a></p>
 
           <textarea id="summaryEmailPayload" name="Domande e risposte" class="hidden-field" aria-hidden="true"></textarea>
 
@@ -4945,6 +5011,20 @@ section.panel.panel-target h3{
           <div class="actions">
             <p>Le risposte verranno inviate in uno schema ordinato domanda/risposta, così il report può essere preparato rapidamente.</p>
             <button class="btn" type="submit">Invia richiesta</button>
+          </div>
+
+
+          <div id="missingFieldsNotice" class="result missing-fields-notice" aria-live="polite">
+            <div class="success-card warning-card">
+              <div class="warning-check" aria-hidden="true">!</div>
+
+              <h4>Non hai compilato tutti i campi!</h4>
+              <p>Puoi completarli per ottenere un report più preciso, oppure inviare comunque la richiesta.</p>
+
+              <ul id="missingFieldsList" class="missing-fields-list"></ul>
+
+              <button type="button" id="sendAnywayBtn" class="btn warning-btn">Invia comunque</button>
+            </div>
           </div>
 
           <div id="result" class="result" aria-live="polite">
@@ -5213,12 +5293,126 @@ const heroCta = document.querySelector(".hero-cta");
     }
     const FORMSUBMIT_EMAIL = "francescont6@icloud.com";
 
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
+    const missingFieldsNotice = document.getElementById("missingFieldsNotice");
+    const missingFieldsList = document.getElementById("missingFieldsList");
+    const sendAnywayBtn = document.getElementById("sendAnywayBtn");
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
+    function getValueByName(name) {
+      const checked = form.querySelector('[name="' + name + '"]:checked');
+      if (checked) return checked.value;
+
+      const field = form.querySelector('[name="' + name + '"]');
+      if (!field) return "";
+      return String(field.value || "").trim();
+    }
+
+    function cleanAnswer(answer) {
+      return answer && String(answer).trim() ? String(answer).trim() : "Campo non compilato";
+    }
+
+    function qa(question, answer, checkCompleteness) {
+      return {
+        question,
+        answer: cleanAnswer(answer),
+        missing: checkCompleteness && !answer
+      };
+    }
+
+    function buildAnswerData() {
+      const ideaNameRaw = getValueByName("Nome idea");
+      const conviction = getValueByName("Livello convinzione") || "Non indicato";
+      const plan = getValueByName("Piano di validazione") || "Non indicato";
+      const contactRaw = getValueByName("email");
+
+      const answers = [
+        qa("Come si chiama la tua idea?", ideaNameRaw, true),
+        qa("Descrivila in modo semplice.", getValueByName("Descrizione"), true),
+        qa("Quanto sei convinto dell’idea oggi?", conviction === "Non indicato" ? conviction : conviction + "/10", false),
+
+        qa("Che problema dovrebbe risolvere?", getValueByName("Problema"), true),
+        qa("Chi dovrebbe usarla?", getValueByName("Utente ideale"), true),
+        qa("Chi dovrebbe pagarla?", getValueByName("Cliente pagante"), true),
+
+        qa("Perché secondo te potrebbe funzionare?", getValueByName("Perché potrebbe funzionare"), true),
+        qa("Hai visto strumenti o progetti simili?", getValueByName("Alternative simili"), true),
+        qa("Come immagini di guadagnarci?", getValueByName("Modello di guadagno"), true),
+
+        qa("Quanto tempo puoi dedicarci nei prossimi 30 giorni?", getValueByName("Tempo disponibile"), true),
+        qa("Quanto budget hai per testarla?", getValueByName("Budget disponibile"), true),
+        qa("Cosa ti blocca oggi?", getValueByName("Blocco principale"), true),
+
+        qa("Quanto vuoi che la critica sia dura?", getValueByName("Critica richiesta"), false),
+        qa("Vuoi ricevere anche un piano di validazione pratico?", plan, false),
+        qa("Email o contatto per ricevere il report", contactRaw, true)
+      ];
+
+      return {
+        ideaName: cleanAnswer(ideaNameRaw),
+        ideaNameForSubject: ideaNameRaw || "Idea senza nome",
+        conviction,
+        plan,
+        contact: cleanAnswer(contactRaw),
+        contactRaw,
+        answers,
+        missingFields: answers.filter(item => item.missing).map(item => item.question)
+      };
+    }
+
+    function buildSummaryFromData(data) {
+      const lines = [
+        "IDEAFORGE — DOMANDE E RISPOSTE",
+        "",
+        "Nome idea: " + data.ideaName,
+        "Livello convinzione: " + (data.conviction === "Non indicato" ? "Campo non compilato" : data.conviction + "/10"),
+        "Piano richiesto: " + data.plan,
+        "Contatto: " + data.contact,
+        "",
+        "────────────────────",
+        ""
+      ];
+
+      data.answers.forEach(function(item, index) {
+        lines.push(String(index + 1).padStart(2, "0") + ". DOMANDA");
+        lines.push(item.question);
+        lines.push("");
+        lines.push("RISPOSTA");
+        lines.push(item.answer);
+        lines.push("");
+        lines.push("────────────────────");
+        lines.push("");
+      });
+
+      return lines.join("\\n").trim();
+    }
+
+    function showMissingFieldsWarning(missingFields) {
+      if (!missingFieldsNotice || !missingFieldsList) return;
+
+      if (result) {
+        result.classList.remove("visible");
+      }
+
+      missingFieldsList.innerHTML = "";
+      missingFields.forEach(function(field) {
+        const li = document.createElement("li");
+        li.textContent = field;
+        missingFieldsList.appendChild(li);
+      });
+
+      missingFieldsNotice.classList.add("visible");
+      missingFieldsNotice.scrollIntoView({ behavior:"smooth", block:"center" });
+    }
+
+    async function submitIdeaForgeRequest(sendAnyway) {
+      const data = buildAnswerData();
+
+      if (data.missingFields.length && !sendAnyway) {
+        showMissingFieldsWarning(data.missingFields);
         return;
+      }
+
+      if (missingFieldsNotice) {
+        missingFieldsNotice.classList.remove("visible");
       }
 
       if (
@@ -5234,73 +5428,7 @@ const heroCta = document.querySelector(".hero-cta");
         return;
       }
 
-      function getValueByName(name) {
-        const checked = form.querySelector('[name="' + name + '"]:checked');
-        if (checked) return checked.value;
-
-        const field = form.querySelector('[name="' + name + '"]');
-        if (!field) return "";
-        return String(field.value || "").trim();
-      }
-
-      function qa(question, answer) {
-        return {
-          question,
-          answer: answer && String(answer).trim() ? String(answer).trim() : "Non indicato"
-        };
-      }
-
-      const ideaName = getValueByName("Nome idea") || "Idea senza nome";
-      const conviction = getValueByName("Livello convinzione") || "Non indicato";
-      const plan = getValueByName("Piano di validazione") || "Non indicato";
-      const contact = getValueByName("email") || "Non indicato";
-
-      const answers = [
-        qa("Come si chiama la tua idea?", getValueByName("Nome idea")),
-        qa("Descrivila in modo semplice.", getValueByName("Descrizione")),
-        qa("Quanto sei convinto dell’idea oggi?", conviction === "Non indicato" ? conviction : conviction + "/10"),
-
-        qa("Che problema dovrebbe risolvere?", getValueByName("Problema")),
-        qa("Chi dovrebbe usarla?", getValueByName("Utente ideale")),
-        qa("Chi dovrebbe pagarla?", getValueByName("Cliente pagante")),
-
-        qa("Perché secondo te potrebbe funzionare?", getValueByName("Perché potrebbe funzionare")),
-        qa("Hai visto strumenti o progetti simili?", getValueByName("Alternative simili")),
-        qa("Come immagini di guadagnarci?", getValueByName("Modello di guadagno")),
-
-        qa("Quanto tempo puoi dedicarci nei prossimi 30 giorni?", getValueByName("Tempo disponibile")),
-        qa("Quanto budget hai per testarla?", getValueByName("Budget disponibile")),
-        qa("Cosa ti blocca oggi?", getValueByName("Blocco principale")),
-
-        qa("Quanto vuoi che la critica sia dura?", getValueByName("Critica richiesta")),
-        qa("Vuoi ricevere anche un piano di validazione pratico?", plan),
-        qa("Email o contatto per ricevere il report", contact)
-      ];
-
-      const lines = [
-        "IDEAFORGE — DOMANDE E RISPOSTE",
-        "",
-        "Nome idea: " + ideaName,
-        "Livello convinzione: " + (conviction === "Non indicato" ? conviction : conviction + "/10"),
-        "Piano richiesto: " + plan,
-        "Contatto: " + contact,
-        "",
-        "────────────────────",
-        ""
-      ];
-
-      answers.forEach(function(item, index) {
-        lines.push(String(index + 1).padStart(2, "0") + ". DOMANDA");
-        lines.push(item.question);
-        lines.push("");
-        lines.push("RISPOSTA");
-        lines.push(item.answer);
-        lines.push("");
-        lines.push("────────────────────");
-        lines.push("");
-      });
-
-      const generatedSummary = lines.join("\n").trim();
+      const generatedSummary = buildSummaryFromData(data);
       const summaryPayload = document.getElementById("summaryEmailPayload");
 
       if (summary) {
@@ -5316,7 +5444,7 @@ const heroCta = document.querySelector(".hero-cta");
       const originalButtonText = submitButton ? submitButton.textContent : "";
 
       if (submitStatus) {
-        submitStatus.textContent = "Preparazione email in corso...";
+        submitStatus.textContent = "Invio della richiesta in corso...";
         submitStatus.classList.add("is-visible");
       }
 
@@ -5327,13 +5455,13 @@ const heroCta = document.querySelector(".hero-cta");
 
       const payload = {
         "Domande e risposte": generatedSummary,
-        "_subject": "[IdeaForge] " + ideaName + " — Risposte form",
+        "_subject": "[IdeaForge] " + data.ideaNameForSubject + " — Risposte form",
         "_template": "box",
         "_captcha": "false"
       };
 
-      if (contact.includes("@")) {
-        payload["_replyto"] = contact;
+      if (data.contactRaw.includes("@")) {
+        payload["_replyto"] = data.contactRaw;
       }
 
       try {
@@ -5373,7 +5501,18 @@ const heroCta = document.querySelector(".hero-cta");
           submitButton.textContent = originalButtonText || "Invia richiesta";
         }
       }
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      submitIdeaForgeRequest(false);
     });
+
+    if (sendAnywayBtn) {
+      sendAnywayBtn.addEventListener("click", function() {
+        submitIdeaForgeRequest(true);
+      });
+    }
 
     
     if (copyBtn) copyBtn.addEventListener("click", async function() {
@@ -5389,14 +5528,5 @@ const heroCta = document.querySelector(".hero-cta");
       }
     });
   </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('a[href*="privacy.html"]').forEach(function (link) {
-      link.setAttribute("href", "/IdeaForge/privacy.html?v=3");
-    });
-  });
-</script>
-
 </body>
 </html>
