@@ -1,0 +1,26 @@
+{
+  "schema_version": "decision-system-project-adoption.v1",
+  "project_id": "ideaforge",
+  "display_name": "IdeaForge",
+  "repository_full_name": "francesco171717/IdeaForge",
+  "decision_system_repository": "francesco171717/Decision-System",
+  "active_context_paths": [],
+  "observation": {
+    "enabled": true,
+    "explicit_project_id": "ideaforge",
+    "evidence_namespace": "ideaforge",
+    "raw_content_persisted": false
+  },
+  "evolution": {
+    "mode": "review_required",
+    "maximum_autonomy_level": 1,
+    "allowed_path_prefixes": ["docs/", "tests/", "examples/"],
+    "prohibited_path_prefixes": [".github/workflows/", "config/", "secrets/", "credentials/"]
+  },
+  "boundaries": {
+    "no_runtime_integration": true,
+    "no_credentials": true,
+    "no_protection_bypass": true,
+    "project_registry_is_authoritative": true
+  }
+}
